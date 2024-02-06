@@ -12,14 +12,14 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const routes_1 = __importDefault(require("./routes/routes"));
 const app = (0, express_1.default)();
 const server = http_1.default.createServer(app);
-// Express confrigation 
+//Express confrigation
 app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.set("PORT", 3000);
 app.set("BASE_URL", "localhost");
 dotenv_1.default.config();
-//define the routes
+//Define the routes
 app.use("/api/v1", routes_1.default);
 // Mongo Connection
 const mongoURI = process.env.MONGO_DGB_URI;
@@ -27,18 +27,20 @@ if (!mongoURI) {
     console.error("MongoDB URL is not defined");
     process.exit(1);
 }
-mongoose_1.default.connect(mongoURI, {}).then(() => {
-    console.log("MongDB is connected");
+mongoose_1.default
+    .connect(mongoURI, {})
+    .then(() => {
+    console.log("MongoDB is connected");
 })
     .catch((error) => {
     console.log(error);
 });
-// start the server
+//Start the server
 try {
     const port = app.get("PORT");
     const baseUrl = app.get("Base_URL");
     server.listen(port, () => {
-        console.log("Server is listening");
+        console.log("Server is Listening");
     });
 }
 catch (error) {

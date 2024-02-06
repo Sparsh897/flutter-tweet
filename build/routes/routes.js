@@ -5,10 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const hello_routes_1 = __importDefault(require("./hello.routes"));
-// import userRouter from "./user.routes";
-// import tweetRouter from "./tweet.routes";
+const user_routes_1 = __importDefault(require("./user.routes"));
+const tweet_routes_1 = __importDefault(require("./tweet.routes"));
 const router = (0, express_1.Router)();
 router.use('/hello', hello_routes_1.default);
-// router.use('/user',userRouter)
-// router.use('/tweet',tweetRouter)
+router.use('/user', user_routes_1.default);
+router.use('/tweet', tweet_routes_1.default);
 exports.default = router;

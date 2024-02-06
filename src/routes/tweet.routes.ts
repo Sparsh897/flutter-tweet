@@ -1,16 +1,14 @@
-// import { Router } from "express";
+import { Router } from "express";
+import { createTweetController, deleteTweetController, getTweetController, updateTweetController } from "../controllers/tweet.controller";
 
-// const tweetRouter =Router();
+const tweetRouter =Router();
 
+// Define the routes paths
 
+tweetRouter.get("/:tweetId",getTweetController )
+//tweetRouter.get("/",getAllTweetController )
+tweetRouter.post("/",createTweetController )
+tweetRouter.delete("/:userId",deleteTweetController )
+tweetRouter.put("/",updateTweetController )
 
-// // Define the routes paths
-
-// tweetRouter.get("/:tweetId",getTweetController )
-// tweetRouter.get("/",getAllTweetsController )
-// tweetRouter.post("/",createTweetController )
-// tweetRouter.delete("/:tweetId",deleteteTweetController )
-// tweetRouter.put("/",updateTweetController )
-
-
-// export default tweetRouter
+export default tweetRouter
