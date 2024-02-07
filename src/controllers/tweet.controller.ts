@@ -71,7 +71,7 @@ export const updateTweetController = asyncHandler(
 export const deleteTweetController = asyncHandler(
   async (req: Request, res: Response) => {
     const tweetId = req.params.tweetId as string;
-    console.log(tweetId)
+
     try {
       const success = await deleteTweetRepo(tweetId);
     
